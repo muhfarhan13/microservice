@@ -38,11 +38,11 @@ code .
 
 #### 4. Setup database MySQL dan sesuaikan config pada file config/database.go
 ```
-	dbUser := flag.String("db_user", "root", "Database user")
-	dbPassword := flag.String("db_password", "", "Database password")
-	dbHost := flag.String("db_host", "localhost", "Database host")
-	dbPort := flag.String("db_port", "3306", "Database port")
-	dbName := flag.String("db_name", "article", "Database name")
+dbUser := flag.String("db_user", "root", "Database user")
+dbPassword := flag.String("db_password", "", "Database password")
+dbHost := flag.String("db_host", "localhost", "Database host")
+dbPort := flag.String("db_port", "3306", "Database port")
+dbName := flag.String("db_name", "article", "Database name")
 ```
 ubah parameter ke 2 dan sesuaikan dengan database MySQL anda
 
