@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "f819c6fb-5916-44a7-bc43-81e8806d4b99",
+		"name": "Microservice Article",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "18697627"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/article",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/article?limit=5&offset=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"article"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						}
+					]
+				},
+				"description": "Menampilkan article dengan id yang di-request"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/article/{id}",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"1 Judul Artikel hahahahhahhahhha\",\n    \"content\": \"dajdiasjdioasd diasoidjasdio It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\n    \"category\": \"BDS\",\n    \"status\": \"trash\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/article/{id}",
+				"description": "Merubah data article dengan id yang di-request"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/article",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let now = new Date().toISOString().slice(0, 19).replace(\"T\",\" \");",
+							"pm.environment.set(\"current_datetime\", now);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Artikel baru, ini judul artikelnya\",\n  \"content\": \"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\n  \"category\": \"TGC\",\n  \"status\": \"publish\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/article",
+				"description": "Membuat article baru"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/article/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8080/article/{id}",
+				"description": "Menghapus data article dengan id yang di request"
+			},
+			"response": []
+		}
+	]
+}
